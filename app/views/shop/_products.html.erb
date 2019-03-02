@@ -1,13 +1,14 @@
 <ul>
+<div id="items">
     <% @products.each do |product| %>
         <li style="display: inline-block;" class="m-2">
-        <%= link_to url_for('/contact/send_message?id=' + product.id.to_s), style:"text-decoration: none;", class:"btn" do %>
+        <%= link_to contact_to_buy_path(product), style:"text-decoration: none;", class:"btn" do %>
             <div class="card bg-info p-1" style="width: 15rem;height:23rem;">
                 <img src="<%= product.image %>" class="card-img-top zoom" style="background-color: white;border-radius: 10px;">
                 <div class="card-body">
                     <h5 class="text-white" style="font-size: 100%"><%= product.title %></h5>
                     <div>
-                        <p class="card-text" style="font-size: 110%;"><strong>R$<%= product.price %></strong></p>
+                        <p class="card-text price"><strong>R$<%= product.price %></strong></p>
                     </div>
                 </div>
             </div>
@@ -15,8 +16,15 @@
         </li>
     <% end %>
 </ul>
+</div>
 
 <style>
+#items {
+    margin-left: 80px;
+}
+.price {
+    font-size: 160%;
+}
 .zoom {
     padding: 10px;
     transition: transform .2s; /* Animation */
@@ -26,10 +34,7 @@
 }
 
 .zoom:hover {
-    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    -webkit-box-shadow: -2px 2px 35px 5px rgba(56,66,255,1);
-    -moz-box-shadow: -2px 2px 35px 5px rgba(56,66,255,1);
-    box-shadow: -2px 2px 35px 5px rgba(56,66,255,1);'
+    transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 </sty
 </style>
