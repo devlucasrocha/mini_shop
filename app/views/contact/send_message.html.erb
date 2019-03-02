@@ -1,0 +1,19 @@
+<% title = @product.title %>
+
+<% msg = "Olá, eu gostaria de comprar o produto [ *#{title}* ] do valor de R$#{@product.price}"%>
+
+<% link = "https://api.whatsapp.com/send?phone=+55019999053169&text=#{msg}"%>
+
+<div class="d-flex justify-content-center">
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="text-center">Painel de compra</h1>
+      <h6>Produto: <strong><span class="text-primary"><%= title %><span></strong></h6>
+        <%= image_tag @product.image, size:"200" %><br><br>
+    <a class="btn btn-success" href="<%= link %>">Enviar mensagem no WHATSAPP</a>
+    <a class="btn btn-success" href="tel: 019999053169">Fazer ligação</a>
+    <br><br>
+    <%= link_to 'Voltar', root_path, class:"btn btn-danger" %>
+  </div>
+</div>
+</div>

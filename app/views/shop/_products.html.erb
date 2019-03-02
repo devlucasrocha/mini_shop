@@ -1,9 +1,9 @@
 <ul>
-<div>
     <% @products.each do |product| %>
         <li style="display: inline-block;" class="m-2">
+        <%= link_to url_for('/contact/send_message?id=' + product.id.to_s), style:"text-decoration: none;", class:"btn" do %>
             <div class="card bg-info p-1" style="width: 15rem;height:23rem;">
-                <img src="<%= product.image %>" class="card-img-top" style="background-color: white;border-radius: 10px;">
+                <img src="<%= product.image %>" class="card-img-top zoom" style="background-color: white;border-radius: 10px;">
                 <div class="card-body">
                     <h5 class="text-white" style="font-size: 100%"><%= product.title %></h5>
                     <div>
@@ -11,7 +11,25 @@
                     </div>
                 </div>
             </div>
+            <% end %>
         </li>
     <% end %>
-</div>
 </ul>
+
+<style>
+.zoom {
+    padding: 10px;
+    transition: transform .2s; /* Animation */
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    -webkit-box-shadow: -2px 2px 35px 5px rgba(56,66,255,1);
+    -moz-box-shadow: -2px 2px 35px 5px rgba(56,66,255,1);
+    box-shadow: -2px 2px 35px 5px rgba(56,66,255,1);'
+}
+</sty
+</style>
